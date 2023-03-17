@@ -52,6 +52,12 @@ contract TokenFaucet is Ownable2Step {
         emit RequestToken(token, to, amountAllowed);
     }
 
+    function getAllownAmount(
+        address _token
+    ) public view returns (AmountRestriction memory) {
+        return amountRestrictionMap[_token];
+    }
+
     function setAllownAmount(
         address _token,
         uint256 _amountAllowedDate,
